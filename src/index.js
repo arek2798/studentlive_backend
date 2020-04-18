@@ -5,7 +5,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const routes = require('./routes');
+const routes = require('../routes');
 dotenv.config();
 const PORT = process.env.PORT || 9000;
 
