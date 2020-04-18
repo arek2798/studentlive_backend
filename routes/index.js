@@ -3,6 +3,12 @@ const { subject, note, task, schedule, user } = require('../controllers');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.json({
+        hello: "hi!"
+    });
+})
+
 router.get('/subjects', subject.getAllSubjects);
 router.post('/subject', subject.addSubject);
 router.put('/subject/:id', subject.updateSubject);
