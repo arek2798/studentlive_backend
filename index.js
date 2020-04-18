@@ -25,4 +25,5 @@ conn.once('open', () => {
     app.use('/.netlify/functions/api', routes);
 });
 
+module.exports = app;
 module.exports.handler = serverless(app);
