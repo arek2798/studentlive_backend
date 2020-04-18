@@ -22,7 +22,7 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', () => {
     console.log('Connected to MongoDB database!!!');
     app.listen(PORT, () => console.log(`App is listening on port ${PORT}!`));
-    app.use('/.netlify/functions/api', routes);
+    app.use('/api', routes);
 });
 
 module.exports = app;
