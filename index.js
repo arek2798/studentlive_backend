@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const session = require('express-session');
+// const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -11,11 +11,11 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true
-}));
+// app.use(session({
+//     secret: 'keyboard cat',
+//     resave: false,
+//     saveUninitialized: true
+// }));
 
 
 if (!mongoose.connect(process.env.NODE_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })) console.log("blad")
