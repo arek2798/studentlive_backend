@@ -25,7 +25,7 @@ if (!mongoose.connect(`mongodb+srv://admin:admin1234@studentlive-wojch.mongodb.n
 mongoose.set('useCreateIndex', true);
 
 const conn = mongoose.connection;
-conn.on('error', console.error.bind(console, 'connection error:'));
+conn.on('error', console.error.bind(console, 'connection errorrr:'));
 conn.once('open', () => {
     console.log('Connected to MongoDB database!!!');
     app.listen(PORT, () => console.log(`App is listening on port ${PORT}!`));
