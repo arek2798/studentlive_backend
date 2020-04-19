@@ -21,11 +21,11 @@ app.use(cors());
 //     secret: 'keyboard cat'
 // }))
 
-if (!mongoose.connect(`mongodb+srv://admin:admin1234@studentlive-wojch.mongodb.net/studentLive?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })) console.log("blad")
+if (!mongoose.connect(process.env.NODE_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })) console.log("blad")
 mongoose.set('useCreateIndex', true);
 
 const conn = mongoose.connection;
-conn.on('error', console.error.bind(console, 'connection errorrr:'));
+conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', () => {
     console.log('Connected to MongoDB database!!!');
     app.listen(PORT, () => console.log(`App is listening on port ${PORT}!`));
