@@ -11,7 +11,12 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: true }));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}));
+
 
 if (!mongoose.connect(process.env.NODE_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })) console.log("blad")
 mongoose.set('useCreateIndex', true);
