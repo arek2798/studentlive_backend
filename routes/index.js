@@ -1,5 +1,5 @@
 const express = require('express');
-const { subject, note, task, schedule, user } = require('../controllers');
+const { subject, note, task, schedule, user, event } = require('../controllers');
 
 const router = express.Router();
 
@@ -28,6 +28,8 @@ router.delete('/task/:id', task.deleteTask);
 router.get('/schedule', schedule.getSchedule);
 router.post('/schedule', schedule.createSchedule);
 router.put('/schedule/:id', schedule.updateSchedule);
+
+router.post('/event', event.addEvent);
 
 router.post('/user/signin', user.loginUser);
 router.post('/user', user.addUser);
