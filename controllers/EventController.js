@@ -24,7 +24,7 @@ const event = {
     },
 
     getMonthEvents: (req, res) => {
-        Note.find({ userID: req.query, date: { $regex: ".*2020-05-13.*" } })
+        Note.find({ userID: req.query.userID, date: { $regex: ".*2020-05-13.*" } })
             .then(results => res.send(results))
             .catch(err => console.log(err))
     },
