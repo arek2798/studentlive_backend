@@ -24,11 +24,22 @@ const event = {
     },
 
     getMonthEvents: (req, res) => {
-        // Event.find({ userID: req.query.userID, date: { $regex: "/" + req.query.month + "/" } })
         Event.find({ userID: req.query.userID, date: { $regex: ".*" + req.query.month + ".*" } })
             .then(results => res.send(results))
             .catch(err => console.log(err))
     },
+
+    removeEvent: (req, res) => {
+        Event.findByIdAndDelete(req.params.id)
+            .then(result => {
+                if (!result) {
+                    res.sendStatus(404);
+                    res.send(result)
+                }
+                else res.sendStatus(200);
+            })
+            .catch(err => res.sendStatus(500));
+    }
 }
 
 module.exports = event;

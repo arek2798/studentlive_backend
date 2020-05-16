@@ -3,7 +3,7 @@ const { subject, note, task, schedule, user, event } = require('../controllers')
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/test', (req, res) => {
     res.json({
         hello: "hi!"
     });
@@ -31,6 +31,7 @@ router.put('/schedule/:id', schedule.updateSchedule);
 
 router.post('/event', event.addEvent);
 router.get('/events', event.getMonthEvents);
+router.delete('/event/:id', event.removeEvent);
 
 router.post('/user/signin', user.loginUser);
 router.post('/user', user.addUser);
