@@ -13,19 +13,20 @@ const event = {
             color: req.body.color
         }
 
-        console.log(newEventContent);
-
         try {
             await new Event(newEventContent).save((err, event) => {
-                // console.log(event);
-                console.log("event");
                 res.send(event);
             })
         } catch (err) {
             res.sendStatus(500);
-            console.log("blas");
             console.log(err);
         }
+    },
+
+    getMonthEvents: (req, res) => {
+        Note.find({ userID: req.query, date: { $regex: ".*2020-05-13.*" } })
+            .then(results => res.send(results))
+            .catch(err => console.log(err))
     },
 }
 

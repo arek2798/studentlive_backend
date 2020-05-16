@@ -30,6 +30,7 @@ router.post('/schedule', schedule.createSchedule);
 router.put('/schedule/:id', schedule.updateSchedule);
 
 router.post('/event', event.addEvent);
+router.get('/events', event.getMonthEvents);
 
 router.post('/user/signin', user.loginUser);
 router.post('/user', user.addUser);
