@@ -35,7 +35,7 @@ const user = {
                         res.send(user)
                     } else {
                         res.json({ message: 'Złe hasło' })
-                        res.sendStatus(401);
+                        // res.sendStatus(401);
                     }
                 })
             })
