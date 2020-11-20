@@ -27,14 +27,14 @@ const user = {
         sess = req.session;
         User.findOne({ email: req.body.email })
             .then((user) => {
-                if (!user) return res.json({ message: 'Login failed, user not found' })
+                if (!user) return res.json({ errorCode: 21, message: 'Login failed, user not found' })
                 bcrypt.compare(req.body.password, user.password, (err, result) => {
                     if (result === true) {
                         sess.email = req.body.email;
                         console.log(sess);
                         res.send(user)
                     } else {
-                        res.send({ errorCode: 21, message: 'Not allowed' })
+                        res.json({ errorCode: 22, message: 'Not allowed' })
                         console.log("Not allowed")
                     }
                 })
