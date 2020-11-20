@@ -34,9 +34,8 @@ const user = {
                         console.log(sess);
                         res.send(user)
                     } else {
-                        res.send({ message: 'Złe hasło' })
-                        console.log("złe hasło")
-                        // res.sendStatus(401);
+                        res.send({ errorCode: 21, message: 'Not allowed' })
+                        console.log("Not allowed")
                     }
                 })
             })
