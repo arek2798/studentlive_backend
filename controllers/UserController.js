@@ -34,7 +34,7 @@ const user = {
                         console.log(sess);
                         res.send(user)
                     } else {
-                        res.json({ message: 'Złe hasło' })
+                        res.send({ message: 'Złe hasło' })
                         console.log("złe hasło")
                         // res.sendStatus(401);
                     }
