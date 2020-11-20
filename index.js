@@ -30,4 +30,8 @@ conn.once('open', () => {
     console.log('Connected to MongoDB database!!!');
     app.listen(PORT, () => console.log(`App is listening on port ${PORT}!`));
     app.use('/api', routes);
+    app.on('clientError', (err, socket) => {
+        console.error(err);
+        socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+    });
 });
